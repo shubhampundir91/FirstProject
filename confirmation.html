@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="text-align:center; padding:40px;">
+
+    <h1>🎉 Order Confirmed!</h1>
+
+    <h2 id="orderNumber"></h2>
+
+    <p>Status: <strong>Processing</strong></p>
+
+    <br><br>
+
+    <a href="index.html">
+        <button>Continue Shopping</button>
+    </a>
+
+    <script>
+        // Get order number from localStorage
+        let orderNo = localStorage.getItem("lastOrder");
+
+        if(orderNo){
+            document.getElementById("orderNumber").innerText =
+                "Order Number: " + orderNo;
+
+            // Remove order number after showing
+            localStorage.removeItem("lastOrder");
+        } else {
+            document.getElementById("orderNumber").innerText =
+                "No recent order found.";
+        }
+    </script>
+
+</body>
+</html>
